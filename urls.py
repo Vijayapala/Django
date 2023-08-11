@@ -1,5 +1,5 @@
 """
-URL configuration for firstproject project.
+URL configuration for loginproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -14,18 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import imp
 from django.contrib import admin
-from django.urls import path
-from .views import home
-from .helloworld import home1
-#from .login import NewUserForm
+from django.urls import path,include
 
 
 urlpatterns = [
-    path('admin', admin.site.urls),
-    path("",home,name="home"),
-    path("vijaya",home1,name="Vijaya"),
-    #path("login",NewUserForm,name="login"),
-
+    path('', admin.site.urls),
+        path('',include("django.contrib.auth.urls")),
 ]
